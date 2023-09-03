@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:game_test/app/app.dart';
 import 'package:game_test/components/appbar_title_widget.dart';
+import 'package:game_test/components/custom_card.dart';
 import 'package:game_test/components/slider_widget.dart';
 import 'package:game_test/components/variant_widget.dart';
 import 'package:game_test/models/questions.dart';
@@ -81,21 +83,48 @@ class _TestPageState extends State<TestPage> {
                           ),
                         ),
                         actions: <Widget>[
-                          TextButton(
-                            onPressed: () {
-                              setState(() {
-                                index = 0;
-                                trueAnswer = 0;
-                                lives = 3;
-                              });
-                              Navigator.of(context).pop();
-                            },
-                            child: const Text(
-                              'Начать снова',
-                              style: TextStyle(
-                                fontSize: 24,
+                          Row(
+                            children: [
+                              TextButton(
+                                onPressed: () {
+                                  setState(() {
+                                    index = 0;
+                                    trueAnswer = 0;
+                                    lives = 3;
+                                  });
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) {
+                                        return MyApp();
+                                      },
+                                    ),
+                                  );
+                                },
+                                child: const Text(
+                                  'Меню',
+                                  style: TextStyle(
+                                    fontSize: 24,
+                                  ),
+                                ),
                               ),
-                            ),
+                              TextButton(
+                                onPressed: () {
+                                  setState(() {
+                                    index = 0;
+                                    trueAnswer = 0;
+                                    lives = 3;
+                                  });
+                                  Navigator.of(context).pop();
+                                },
+                                child: const Text(
+                                  'Начать снова',
+                                  style: TextStyle(
+                                    fontSize: 24,
+                                  ),
+                                ),
+                              ),
+                            ],
                           ),
                         ],
                       );
